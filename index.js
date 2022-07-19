@@ -5,13 +5,14 @@ const app = express()
 const port = 5000
 const bodyParser = require('body-parser');
 const { User } = require("./models/User");
+const config =require('./config/key');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// mongodb+srv://aiden:aiden@aiden.1l3v9.mongodb.net/?retryWrites=true&w=majority'
+
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://by-your:hjg0821@by-your.o6dcz.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(config.mongoURI, {
 }).then(() => console.log('MongoDB connected...')) // 접속시
     .catch(err => console.log('err ========= ' + err)) // 에러시
 
