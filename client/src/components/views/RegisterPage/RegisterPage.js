@@ -11,8 +11,16 @@ function RegisterPage() {
   const [Email, setEmail] = useState("")
   const [Password, setPassword] = useState("")
   const [Name, setName] = useState("")
+  const [Age, setAge] = useState("")
+  const [Gender, setGender] = useState("")
   const [ConfirmPassword, setConfirmPassword] = useState("")
 
+  const onAgeHandler = (event) => {
+    setAge(event.currentTarget.value)
+  }
+  const onGenderHandler = (event) => {
+    setGender(event.currentTarget.value)
+  }
   const onEmailHandler = (event) => {
     setEmail(event.currentTarget.value)
   }
@@ -38,6 +46,8 @@ function RegisterPage() {
 
     let body = {
       name: Name,
+      age: Age,
+      gender: Gender,
       email: Email,
       password: Password
     }
@@ -54,36 +64,42 @@ function RegisterPage() {
 
   return (
     <>
-    <div className='center' style={{
-      display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'
-      , width: '100%', height: '100vh'
-  }}>
+      <div className='center' style={{
+        display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'
+        , width: '100%', height: '100vh'
+      }}>
 
-      <form style={{ display: 'flex', flexDirection: 'column' }}
-        onSubmit={onSubmitHandler}
-      >
-        <label>Name</label>
-        <input type="text" value={Name} onChange={onNameHandler} />
+        <form style={{ display: 'flex', flexDirection: 'column' }}
+          onSubmit={onSubmitHandler}
+        >
+          <label>Name</label>
+          <input type="text" value={Name} onChange={onNameHandler} />
 
-        <label>Email</label>
-        <input type="email" value={Email} onChange={onEmailHandler} />
+          <label>Age</label>
+          <input type="number" value={Age} onChange={onAgeHandler} />
 
-        <label>Password</label>
-        <input type="password" value={Password} onChange={onPasswordHandler} />
+          <label>Gender</label>
+          <input type="text" value={Gender} onChange={onGenderHandler} />
 
-        <label>Confirm password</label>
-        <input type="password" value={ConfirmPassword} onChange={onConfirmPassword} />
+          <label>Email</label>
+          <input type="email" value={Email} onChange={onEmailHandler} />
 
-        <br />
+          <label>Password</label>
+          <input type="password" value={Password} onChange={onPasswordHandler} />
 
-        <button type='submit'>
-          회원가입
-        </button>
+          <label>Confirm password</label>
+          <input type="password" value={ConfirmPassword} onChange={onConfirmPassword} />
 
-      </form>
+          <br />
 
-      
-    </div>
+          <button type='submit'>
+            회원가입
+          </button>
+
+        </form>
+
+
+      </div>
     </>
   )
 }

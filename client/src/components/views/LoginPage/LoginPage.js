@@ -35,9 +35,10 @@ function LoginPage() {
     dispatch(loginUser(body))
       .then(response => {
         if (response.payload.loginSuccess) {
-          navigate('/');
+          alert("로그인에 성공했습니다.")
+          navigate('/start');
         } else {
-          alert('Error')
+          alert('로그인에 실패했습니다.')
         }
       })
   }
@@ -46,40 +47,40 @@ function LoginPage() {
   return (
 
     <>
-    
-    <div className='center' style={{
-      display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'
-      , width: '100%', height: '100vh'
-  }}>
-     
 
-      <form style={{ display: 'flex', flexDirection: 'column' }}
-        onSubmit={onSubmitHandler}
-      >
-        <label>Email</label>
-        <input type="email" value={Email} onChange={onEmailHandler} />
-        <label>Password</label>
-        <input type="password" value={Password} onChange={onPasswordHandler} />
+      <div className='center' style={{
+        display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'
+        , width: '100%', height: '100vh'
+      }}>
 
+
+        <form style={{ display: 'flex', flexDirection: 'column' }}
+          onSubmit={onSubmitHandler}
+        >
+          <label>Email</label>
+          <input type="email" value={Email} onChange={onEmailHandler} />
+          <label>Password</label>
+          <input type="password" value={Password} onChange={onPasswordHandler} />
+
+          <br />
+          <button type='submit'
+            style={{
+              width: '200px'
+            }}>
+            Login
+          </button>
+        </form>
         <br />
-        <button type='submit'
+
+        <button onClick={clickMe}
           style={{
             width: '200px'
           }}>
-          Login
+          Join
         </button>
-      </form>
-      <br />
 
-      <button onClick={clickMe}
-        style={{
-          width: '200px'
-        }}>
-        Join
-      </button>
 
-      
-    </div>
+      </div>
     </>
   )
 }

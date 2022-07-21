@@ -25,17 +25,17 @@ function StartPage() {
     return (
 
         <div className='center'>
-            
-            <a 
-            onClick={onClickHandler2}
+
+            <a
+                onClick={onClickHandler2}
                 style={{
                     color: 'black',
                     marginLeft: '1210px'
                 }}>
                 로그인
             </a>
-            <a 
-            onClick={onClickHandler1}
+            <a
+                onClick={onClickHandler1}
                 style={{
                     color: 'black',
                     marginLeft: '1210px'
