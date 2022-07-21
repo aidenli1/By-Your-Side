@@ -12,6 +12,9 @@ const userSChema = mongoose.Schema({
     age: {
         type: Number
     },
+    gender: {
+        type: String
+    },
     email: {
         type: String,
         trim: true,
@@ -36,10 +39,8 @@ const userSChema = mongoose.Schema({
     },
     tokenExp: {
         type: Number
-    },
-    Gender: {
-        type: String
-    },
+    }
+
 
 })
 
@@ -76,24 +77,24 @@ userSChema.methods.generateToken = function (cb) {
     var user = this;
 
     var token = jwt.sign(user._id.toHexString(), 'secretToken')
-    
+
     user.token = token
-    user.save(function(err, user) {
-        if(err) return cb(err);
+    user.save(function (err, user) {
+        if (err) return cb(err);
         cb(null, user);
     })
 }
 
-userSChema.statics.findByToken = function ( token, cb) {
+userSChema.statics.findByToken = function (token, cb) {
     var user = this;
 
     // 토큰 decode
-    jwt.verify(token, 'secretToken', function(err, decoded) {
+    jwt.verify(token, 'secretToken', function (err, decoded) {
         // 유저 아이디 이용해서 유저를 찾은 다음 클라이언트에서 가져온 token과 db에 보관된 
         // 토큰이 일치하는지 확인
 
-        user.findOne({"_id":decoded, "token" : token}, function (err,user) {
-            if(err) return cb(err);
+        user.findOne({ "_id": decoded, "token": token }, function (err, user) {
+            if (err) return cb(err);
             cb(null, user)
         })
     })
