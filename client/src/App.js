@@ -15,8 +15,8 @@ function App() {
       <Routes>
         {/* <Route exact path="/" element={Auth(StartPage, null)} /> */}
         {/* <Route exact path="/login" element={Auth(LoginPage, false)} /> */}
-        <Route exact path="/register" element={Auth(RegisterPage, false)} />
 
+        <Route exact path="/register" element={Auth(RegisterPage, false)} />
         <Route exact path="/" element={Auth(LoginPage, null)} />
         <Route exact path="/start" element={Auth(StartPage, null)} />
       </Routes>

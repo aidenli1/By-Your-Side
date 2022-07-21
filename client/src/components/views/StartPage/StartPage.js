@@ -11,7 +11,7 @@ function StartPage() {
             // axios.get(`/api/users/logout`)
             .then(response => {
                 if (response.payload.success) {
-                    navigate('/login');
+                    navigate('/');
                 } else {
                     alert('로그아웃 실패 했습니다.')
                 }
@@ -20,7 +20,7 @@ function StartPage() {
 
     const onClickHandler2 = () => {
         dispatch(logoutUser())
-        navigate('/login');
+        navigate('/');
     }
     return (
 
