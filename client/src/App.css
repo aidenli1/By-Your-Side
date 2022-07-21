@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+.center {
+  margin: auto;
+  width: 1300px;
+}
+.center a {
+  cursor: pointer;
+}
+.li {
+  justify-content: center;
+  
+  display: flex;
+  list-style: none;
+}
+
+.li li{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.li li a {
+  font-size: 16px;
+  color: black;
+}
+
+
+.li li a:hover {
+  color: rgb(130, 195, 130);
+}
+
+.headerVideo {
+  width: 1300px;
+  height: 300px;
+  position: absolute;
+}
+
+.landingA {
+  color: black;
+  margin-left: 1210px;
+  margin-top: -100px;
+  display: flex;
+}
