@@ -11,6 +11,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+app.use('/api/video', require('./routes/video'));
+
 const mongoose = require('mongoose');
 
 mongoose.connect(config.mongoURI, {
